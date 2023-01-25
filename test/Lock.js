@@ -19,6 +19,13 @@ describe("EcomWeb3", function () {
   }
   let website;
   let deployer, buyer;
+  const ID = 1;
+  const NAME = "Shoes";
+  const CATEGORY = "Clothing";
+  const IMAGE = "https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg";
+  const COST = token(1); //price of product in ether 
+  const RATING = 4;
+  let STOCK = 5;
   //beforeEach describe it runs
   this.beforeEach(async()=>{
 
@@ -41,7 +48,7 @@ describe("EcomWeb3", function () {
     //deploying a copy of it on the test blockchain running in the background
     website = await Website.deploy();
   })
-  
+
   //now we will organize each tests into specific places
   //Grouping tests into different categories
   //Etherjs is the library that connects the project to blockchain
@@ -49,6 +56,42 @@ describe("EcomWeb3", function () {
   describe("Deployment", ()=>{ 
     it('setting the owner',async()=>{
       expect(await website.owner()).to.equal(deployer.address)
+    })
+  })
+  describe("Listing", ()=>{ 
+    let transaction; 
+    //means before any testing to perform for this Listing part,
+    //do this first
+    this.beforeEach(async()=>{
+      //here we are actually creating a product, means, once the smart
+      //contract has been deployed on the blockchain then we are creating
+      //a new item for the testing purpose.
+      console.log('listing runs')
+      transaction = await website.list( 
+        ID,
+        NAME,
+        CATEGORY,
+        IMAGE,
+        COST,
+        RATING,
+        STOCK
+      ) //waiting for the new product to be listed on the website
+      await transaction.wait();
+    })
+    
+    it('Return the item attributes',async()=>{
+      const item = await website.items(1);
+      expect(item.id).to.equal(ID);
+      expect(item.name).to.equal(NAME);
+      expect(item.category).to.equal(CATEGORY);
+      expect(item.cost).to.equal(COST);
+      expect(item.image).to.equal(IMAGE);
+      expect(item.rating).to.equal(RATING);
+      expect(item.stock).to.equal(STOCK);
+    })
+
+    it("Emits Listing of a new product on the website", async ()=>{
+      expect(transaction).to.emit(website, "List");
     })
   })
 });
