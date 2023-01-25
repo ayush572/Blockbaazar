@@ -94,4 +94,68 @@ describe("EcomWeb3", function () {
       expect(transaction).to.emit(website, "List");
     })
   })
+
+  describe("Purchase Product", ()=>{ 
+    
+    let transaction;
+    
+    this.beforeEach(async()=>{
+      console.log("Purchase product runs");
+      //we are still listing the prodcuts so that the products can be
+      //displayed on the screen or are available for the purchase
+      transaction = await website.list( 
+        ID,
+        NAME,
+        CATEGORY,
+        IMAGE,
+        COST,
+        RATING,
+        (STOCK+1) //+1 has been done because it runs before any of the 'it' from chai runs
+      ) //waiting for the new product to be listed on the website
+      await transaction.wait();
+
+      // console.log("current balance is:", await ethers.provider.getBalance(website.address));
+      //Buy an item -> If you need to test your code by sending a transaction 
+      //from an account (or Signer in ethers.js terminology) other than the 
+      //default one, you can use the connect() method on your ethers.js 
+      //Contract object to connect it to a different account
+      transaction = await website.connect(buyer).buy(ID, {value : COST})
+      transaction.wait();
+      //value:COST is like a metadata that can be passed due to 'PAYABLE'
+      //modifier attached to the function
+    })
+
+    //now testing it using chai assertion lib 
+
+    
+    it("Updating the contract balance", async ()=>{
+      
+      //here we have stored the funds in the smart contract itself
+      const amount = await ethers.provider.getBalance(website.address);
+      console.log(amount);
+      expect(amount).to.equal(COST);
+    })
+
+    it("Updating the order count of the buyer", async ()=>{
+      //here we have stored the funds in the smart contract itself
+      const orders = await website.orderCount(buyer.address);
+      
+      console.log("orders: ",orders);
+      expect(orders).to.equal(1);
+    })
+
+    it("Adding the order to the buyers account", async ()=>{
+      const order = await website.orders(buyer.address,1);
+
+      console.log(order.time);
+      console.log(order.item.name);
+      expect(order.time).to.be.greaterThan(0);
+      expect(order.item.name).to.equal(NAME);
+    })
+
+    //now finally emitting a buy event
+    it("Emit buy event", async()=>{
+      expect(transaction).to.emit(website,"buy");
+    })
+  })
 });
