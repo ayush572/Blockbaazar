@@ -71,7 +71,7 @@ contract EcomWeb3 {
         emit List(_name,_cost,_stock);
     }
 
-    
+
     //being paybale means the amount can be transfered to/from the smart
     //contract from any address.
     function buy(uint256 _id) public payable{
@@ -109,5 +109,11 @@ contract EcomWeb3 {
 
         //4)Emit the event for the purchase so that the application is updated
         emit Buy(msg.sender, orderCount[msg.sender], item.id);
+    }
+    
+    //Now finally withdraw the funds from the smart contract by the owner
+    function withdraw() public onlyOwner{
+        (bool success, ) = owner.call{value: address(this).balance}("");
+        require(success);
     }
 }

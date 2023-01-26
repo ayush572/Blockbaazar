@@ -158,4 +158,50 @@ describe("EcomWeb3", function () {
       expect(transaction).to.emit(website,"buy");
     })
   })
+
+  describe("Withdraw amount", async()=>{
+    console.log("Withdraw amount runs");
+    let balBefore;
+
+    //means before any testing to perform for this Listing part,
+    //do this first
+    this.beforeEach(async()=>{
+      //here we are actually creating a product, means, once the smart
+      //contract has been deployed on the blockchain then we are creating
+      //a new item for the testing purpose.
+      // console.log('withdraw amount - listing runs')
+      transaction = await website.connect(deployer).list( 
+        ID,
+        NAME,
+        CATEGORY,
+        IMAGE,
+        COST,
+        RATING,
+        STOCK
+      ) //waiting for the new product to be listed on the website
+      await transaction.wait();
+      // console.log("current balance is:", await ethers.provider.getBalance(website.address));
+
+      //now the buyer is connected to buy a single product
+      transaction = await website.connect(buyer).buy(ID, {value : COST});
+      await transaction.wait();
+
+      //getting the deployer balance before its withdrawn from the smart contract
+      balBefore = await ethers.provider.getBalance(deployer.address);
+      // console.log(balBefore);
+
+      transaction = await website.connect(deployer).withdraw();
+      await transaction.wait();
+      // console.log(new_amt);
+
+      //balance after the amount is withdrawn
+      // console.log(await ethers.provider.getBalance(deployer))
+    })
+
+    it("Amount withdrawn by the owner", async()=>{
+      let new_amt = await ethers.provider.getBalance(deployer.address);
+      expect(new_amt).to.be.greaterThan(balBefore);
+    })
+
+  })
 });

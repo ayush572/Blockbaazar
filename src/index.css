@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Roboto+Mono:ital,wght@1,700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,38 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.main_nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: black;
+  padding: 10px;
+}
+.nav_title{
+  font-weight:500;
+  color: bisque;
+  font-family: 'Roboto Mono', monospace;
+}
+.nav_search{
+  background-color: pink;
+  height: 30px;
+  width: 20rem;
+  font-size: 20px;
+}
+
+.nav_connect{
+
+}
+.nav_links{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: grey;
+  padding: 10px;
+  font-size: 20px;
+  
+}
+.nav_links > a{
+  text-decoration: none;
 }

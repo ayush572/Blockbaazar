@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import { ethers } from 'ethers';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
+  const [acc, setAcc] = useState(null);
+  //first we need a way to get hold of the metamask acc in the browser
+  let loadData = async()=>{
+    //Connect to blockchain
+    //Connect to smart contract
+    //Load products
+    
+  }
+  
+  useEffect(()=>{
+    loadData();
+  },[]) 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar acc={acc} setAcc={setAcc} />
     </div>
+   
   );
 }
 
