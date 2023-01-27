@@ -1,13 +1,10 @@
 import {ethers} from 'ethers'
 import Rating from './Rating'
 const Section = ({title, items, togglePop}) => {
-    let amount = async(item)=>{
-        // return await 
-    }
     return ( 
     <div>
         <div className='cards_section'>
-                <h3 id={title}>{title}</h3>
+                <h3 id={title} style={{fontSize: '1.5rem'}}>{title}</h3>
                 <hr></hr>
                 <div className='cards'>
                     {items.map((item,i)=>(

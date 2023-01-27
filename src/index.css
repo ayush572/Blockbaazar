@@ -33,19 +33,34 @@ code {
 }
 
 .nav_connect{
-
+  padding: 10px;
+  background: orange;
 }
 .nav_links{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 10px;
   font-size: 20px;
-  
-}
-.nav_links > a{
   text-decoration: none;
+}
+.nav_links a{
+  text-decoration: none;
+}
+.nav_links a:hover{
+  text-decoration: none;
+  color: orange;
+}
+.nav_links a:visited{
+  color: orange
+}
+.nav_links a:visited:hover{
+  color: pink
+}
+.nav_links li{
+  text-decoration: none;
+  list-style-type: none;
 }
 .cards_section{
   padding: 3rem 10rem
@@ -56,6 +71,7 @@ code {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-top: 1rem;
 }
 .card{
   margin-left: 100px;
@@ -66,7 +82,7 @@ code {
 }
 
 
-/*PRODUCT*/
+
 .product {
   width: 100vw;
   height: 100vh;

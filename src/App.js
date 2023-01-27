@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <Navbar acc={acc} setAcc={setAcc} />
-      <h2>Products available</h2>
+      <h2 style={{margin: "10px", fontSize: "3rem"}}>Products available</h2>
       {/* this we have done so that while all the products are not loaded 
       till then do not show any product on the webpage */}
       {accessories && clothing && sports ? 
@@ -77,7 +77,6 @@ function App() {
         <Product item={item} provider={provider} account={acc} website={website} togglePop={togglePop} />
       )}
     </div>
-   
   );
 }
 

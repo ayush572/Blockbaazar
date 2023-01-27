@@ -2,9 +2,45 @@ import { useEffect, useState } from "react";
 import {ethers} from 'ethers';
 import Rating from "./Rating";
 const Product = ({item, provider, acc, website, togglePop}) => {
-    let buyHandler = async()=>{
-        console.log('buying...')
+    const [order, setOrder] = useState(null);
+    const [hasBought, setHasBought] = useState(false);
+
+
+    //once an order has been bought, then we will be suing it to fetch the details from the order that we have created
+    let fetchDetails = async()=>{
+        //we are just fetching the event that will be emitted from the Buy method
+        const events = await website.queryFilter("Buy");
+        const orders = events.filter(
+
+            //these events arguments are from the "Buy" event in thw Website.sol
+            (event) => event.args.buyer === acc && event.args.itemId.toString() === item.id.toString()
+        )
+        
+        //if there is no order for the particular item, then we are not going to return anything
+        if(orders.length === 0) return
+
+        //if there is some order then we are going to fetch the details of the order
+        const order = await website.orders(acc, orders[0].args.orderId);
+        setOrder(order);
+        setHasBought(true);
     }
+    //this is the function that will be connecting to the blockchain in order to place the order
+    let buyHandler = async()=>{
+
+        //this will be giving us the signer apart from the deployer, i.e, it knows that which acc was the deployer of the contract
+        //so, we will be getting the signer which has been connected to the website (apart from the deployer)
+        const signer = await provider.getSigner();
+
+        let transcation = await website.connect(signer).buy(item.id, {value: item.cost})
+        transcation.wait();
+    }
+
+    //useEffect is going to fetch the buying details of the order
+    useEffect(()=>{
+        fetchDetails()
+        //hasbOught has been used as the depedency because, say once the order is place or bought, then once again we need to fetch the buying
+        //details of the order
+    },[hasBought]);
     return ( 
         <div className="product">
             <div className="product_details">
@@ -45,6 +81,24 @@ const Product = ({item, provider, acc, website, togglePop}) => {
                 </button>
                 <p><small>Shipped from</small> : Blockbaazar</p>
                 <p><small>Sold By</small> : Blockbaazar</p>
+                
+                {/* if the order exists then only this section will be shown... otherwise not */}
+                {order && (
+                    <div className="product_bought">
+                        Item bought on <br />
+                        <strong>
+                            {new Date(Number(order.time.toString() + '000')).toLocaleDateString(
+                                undefined,
+                                {
+                                    weekday: 'long',
+                                    hour: 'numeric',
+                                    minute: 'numeric',
+                                    second: 'numeric'
+                                }
+                            )}
+                        </strong>
+                    </div>
+                )}
                 <button onClick={togglePop} className='product_close'>
                     <img src="/close.jpg" alt="close" height="2rem" width="2rem"/>
                 </button>

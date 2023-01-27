@@ -21,10 +21,10 @@ const Navbar = ({acc,setAcc}) => {
         by showing the connect button or if its connected then simply
         connect it */}
         {acc?
-        <button type="button" className='nav__connect'>
+        <button type="button" className='nav_connect'>
             {acc.slice(0,6) + '...' + acc.slice(36,42)}
         </button>:
-        <button type="button" className='nav__connect' onClick={connectHandler}>
+        <button type="button" className='nav_connect' onClick={connectHandler}>
             Connect
         </button>
         }
