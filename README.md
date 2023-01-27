@@ -4,20 +4,15 @@ This project demonstrates the working of how decentralization can be applied to 
 
 Technologies used : Hardhat, pinata, solidity, reactjs, etherjs
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
-
 To run the project:
 * By opening the windows powershell and run
-''' npx hardhat node'''
+```shell
+npx hardhat node```
 * Next, pen another powershell terminal and type:
-'''npx hardhat run --network localhost ./scripts/deploy.js.'''
+```shell
+npx hardhat run --network localhost ./scripts/deploy.js.```
 * Finally start the react application by running in bash terminal: 
-'''npm start'''
+```shell
+npm start```
 
 ### You will be able to buy the items and see the purchased product under your metamask or cryptowallet transcation history
