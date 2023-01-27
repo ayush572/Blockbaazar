@@ -12,4 +12,12 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-To run the projects
+To run the project:
+* By opening the windows powershell and run
+''' npx hardhat node'''
+* Next, pen another powershell terminal and type:
+'''npx hardhat run --network localhost ./scripts/deploy.js.'''
+* Finally start the react application by running in bash terminal: 
+'''npm start'''
+
+### You will be able to buy the items and see the purchased product under your metamask or cryptowallet transcation history
