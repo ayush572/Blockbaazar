@@ -10,8 +10,8 @@ const Navbar = ({acc,setAcc}) => {
     }
     return ( 
         <div>
-    <div class="main_nav">
-        <div class="nav_title">
+    <div className="main_nav">
+        <div className="nav_title">
             <h1>BLOCKBAZAAR</h1>
         </div>
         <input type="text" className="nav_search">

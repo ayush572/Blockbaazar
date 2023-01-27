@@ -47,3 +47,150 @@ code {
 .nav_links > a{
   text-decoration: none;
 }
+.cards_section{
+  padding: 3rem 10rem
+}
+.cards{
+  height: 20rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.card{
+  margin-left: 100px;
+}
+.card_img > img{
+  height: 15rem;
+  width: 15rem;
+}
+
+
+/*PRODUCT*/
+.product {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.product_details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  align-items: center;
+
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  padding: 20px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  background: white;
+}
+
+.product_image {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.product_image img {
+  max-width: 100%;
+}
+
+.product_close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+  width: 3rem;
+  height: 3rem;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.product_close img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.product_overview {
+  height: 90%;
+  padding: 20px 40px 20px 20px;
+}
+
+.product_overview h2,
+.product_overview hr,
+.product_overview .rating {
+  margin: 10px auto;
+}
+
+.product_overview ul {
+  margin-left: 40px;
+}
+
+.product_order {
+  max-width: 300px;
+  height: 90%;
+
+  border: 1px solid var(--clr-grey);
+  padding: 20px;
+}
+
+.product_order h1,
+.product_order p {
+  margin-bottom: 10px;
+}
+
+.product_buy {
+  width: 225px;
+  height: 40px;
+  margin: 20px 0;
+
+  background-color: rgba(251, 125, 23, 0.8);
+  color: black;
+
+  border: none;
+  border-radius: 24px;
+
+  font-family: "Open Sans";
+  font-size: 0.95em;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.product_buy:hover {
+  background-color: orange;
+}
+
+.product_bought {
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+@media screen and (max-width: 992px) {
+  .product__details {
+    height: 95%;
+    width: 90%;
+  }
+
+  .product__order {
+    max-width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    grid-column: span 2;
+  }
+}
+

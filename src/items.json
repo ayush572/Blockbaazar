@@ -3,8 +3,8 @@
         "id":"1",
         "name":"Babolat lawn tennis racket",
         "category":"Sports",
-        "image":"https://ipfs.io/ipfs/QmPXCvsmDmApdvG9QCo3Xgt2Uq6xocpWPgdQocWzjeAXP1",
-        "cost":"12000",
+        "image":"https://gateway.pinata.cloud/ipfs/QmPXCvsmDmApdvG9QCo3Xgt2Uq6xocpWPgdQocWzjeAXP1",
+        "cost":"1.75",
         "rating":"4",
         "stock":"12"
     },
@@ -12,8 +12,8 @@
         "id":"2",
         "name":"Stag ninja fire table tennis racket",
         "category":"Sports",
-        "image":"https://ipfs.io/ipfs/QmSwNAQ2Xkk2a9DN7uyLRfcVobCBuSrMrLhnKQanuizwBX",
-        "cost":"3500",
+        "image":"https://gateway.pinata.cloud/ipfs/QmSwNAQ2Xkk2a9DN7uyLRfcVobCBuSrMrLhnKQanuizwBX",
+        "cost":"0.75",
         "rating":"4",
         "stock":"25"
     },
@@ -21,8 +21,8 @@
         "id":"3",
         "name":"Wilson Badminton racket",
         "category":"Sports",
-        "image":"https://ipfs.io/ipfs/QmbZLYfWEWUcsAS5jPEfrct3V3gGAQbq3VZXkXbAkPxk2W",
-        "cost":"12000",
+        "image":"https://gateway.pinata.cloud/ipfs/QmbZLYfWEWUcsAS5jPEfrct3V3gGAQbq3VZXkXbAkPxk2W",
+        "cost":"0.85",
         "rating":"4",
         "stock":"12"
     },
@@ -31,7 +31,7 @@
         "name":"Shoes",
         "category":"Clothing",
         "image":"https://ipfs.io/ipfs/QmTYEboq8raiBs7GTUg2yLXB3PMz6HuBNgNfSZBx5Msztg/shoes.jpg",
-        "cost":"7500",
+        "cost":"0.05",
         "rating":"5",
         "stock":"15"
     },
@@ -40,7 +40,7 @@
         "name":"Tshirt",
         "category":"Clothing",
         "image":"https://ipfs.io/ipfs/QmPupdtCjSmKJivGkijhMPDbFWPWZXe1jD1eKLizYm1mGR",
-        "cost":"3500",
+        "cost":"0.02",
         "rating":"3",
         "stock":"20"
     },
@@ -49,7 +49,7 @@
         "name":"Skirt",
         "category":"Clothing",
         "image":"https://ipfs.io/ipfs/QmRNJ2mcLtQe4LrL1VM67383LBZtkqAbhUz2AxGG3itmF2",
-        "cost":"4000",
+        "cost":"0.05",
         "rating":"3",
         "stock":"23"
     },
@@ -57,8 +57,8 @@
         "id":"7",
         "name":"Watch",
         "category":"Accessories",
-        "image":"https://ipfs.io/ipfs/QmQbEMvwukBJ8R3M6AXMKTupq9mAv6sVUm7qUMDoak7zDc",
-        "cost":"8000",
+        "image":"https://gateway.pinata.cloud/ipfs/QmQbEMvwukBJ8R3M6AXMKTupq9mAv6sVUm7qUMDoak7zDc",
+        "cost":"1.25",
         "rating":"4",
         "stock":"12"
     },
@@ -66,8 +66,8 @@
         "id":"8",
         "name":"Wallet",
         "category":"Accessories",
-        "image":"https://ipfs.io/ipfs/QmV1a63t7sUGEx9DkRBBy99n1v683de8DaF4Qwc31w2vtb",
-        "cost":"1500",
+        "image":"https://gateway.pinata.cloud/ipfs/QmV1a63t7sUGEx9DkRBBy99n1v683de8DaF4Qwc31w2vtb",
+        "cost":"0.00025",
         "rating":"3",
         "stock":"25"
     },
@@ -75,8 +75,8 @@
         "id":"9",
         "name":"Glasses",
         "category":"Accessories",
-        "image":"https://ipfs.io/ipfs/QmPSA2TsWRuyVVCQEP5LwYk9rsDVi12a1RUuXL9cdhomQP",
-        "cost":"6500",
+        "image":"https://gateway.pinata.cloud/ipfs/QmPSA2TsWRuyVVCQEP5LwYk9rsDVi12a1RUuXL9cdhomQP",
+        "cost":"0.0725",
         "rating":"4",
         "stock":"8"
     }
